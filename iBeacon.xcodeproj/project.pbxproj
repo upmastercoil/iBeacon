@@ -14,6 +14,7 @@
 		0F0D294C1E805758007A28A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F0D294A1E805758007A28A9 /* LaunchScreen.storyboard */; };
 		0F0D295B1E805C97007A28A9 /* UpBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0D295A1E805C97007A28A9 /* UpBeacon.swift */; };
 		0F0D296F1E807478007A28A9 /* UpBeaconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0D296E1E807478007A28A9 /* UpBeaconCell.swift */; };
+		0F66C94D1E8E76A300F813F3 /* libAprilBeaconSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F66C94C1E8E76A300F813F3 /* libAprilBeaconSDK.a */; };
 		0FEAF4581E868D0000DCE400 /* IRequestUpBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEAF4571E868D0000DCE400 /* IRequestUpBeacon.swift */; };
 		0FEAF45D1E86A73200DCE400 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEAF45C1E86A73200DCE400 /* Constants.swift */; };
 		A78F185B03E993B9A3F9B765 /* Pods_iBeacon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215BA3B4DB80DD02707530F1 /* Pods_iBeacon.framework */; };
@@ -29,6 +30,8 @@
 		0F0D294D1E805758007A28A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F0D295A1E805C97007A28A9 /* UpBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpBeacon.swift; sourceTree = "<group>"; };
 		0F0D296E1E807478007A28A9 /* UpBeaconCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpBeaconCell.swift; sourceTree = "<group>"; };
+		0F66C94C1E8E76A300F813F3 /* libAprilBeaconSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAprilBeaconSDK.a; path = AprilSDK/libAprilBeaconSDK.a; sourceTree = "<group>"; };
+		0F66C94F1E8E776900F813F3 /* AprilSDKHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AprilSDKHeader.h; sourceTree = "<group>"; };
 		0FEAF4571E868D0000DCE400 /* IRequestUpBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRequestUpBeacon.swift; sourceTree = "<group>"; };
 		0FEAF45C1E86A73200DCE400 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		215BA3B4DB80DD02707530F1 /* Pods_iBeacon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iBeacon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +45,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A78F185B03E993B9A3F9B765 /* Pods_iBeacon.framework in Frameworks */,
+				0F66C94D1E8E76A300F813F3 /* libAprilBeaconSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +83,7 @@
 				0F0D29481E805758007A28A9 /* Assets.xcassets */,
 				0F0D294A1E805758007A28A9 /* LaunchScreen.storyboard */,
 				0F0D294D1E805758007A28A9 /* Info.plist */,
+				0F66C94F1E8E776900F813F3 /* AprilSDKHeader.h */,
 			);
 			path = iBeacon;
 			sourceTree = "<group>";
@@ -127,6 +132,7 @@
 		EAC837B9C9D1B8A701C8548E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0F66C94C1E8E76A300F813F3 /* libAprilBeaconSDK.a */,
 				215BA3B4DB80DD02707530F1 /* Pods_iBeacon.framework */,
 			);
 			name = Frameworks;
@@ -388,9 +394,14 @@
 				DEVELOPMENT_TEAM = UVQCFA38Q3;
 				INFOPLIST_FILE = iBeacon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AprilSDK",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = il.co.upmaster.beacon.iBeacon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				USER_HEADER_SEARCH_PATHS = AprilSDK/Headers;
 			};
 			name = Debug;
 		};
@@ -402,9 +413,14 @@
 				DEVELOPMENT_TEAM = UVQCFA38Q3;
 				INFOPLIST_FILE = iBeacon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/AprilSDK",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = il.co.upmaster.beacon.iBeacon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				USER_HEADER_SEARCH_PATHS = AprilSDK/Headers;
 			};
 			name = Release;
 		};
