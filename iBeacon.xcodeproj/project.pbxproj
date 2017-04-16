@@ -15,6 +15,7 @@
 		0F0D295B1E805C97007A28A9 /* UpBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0D295A1E805C97007A28A9 /* UpBeacon.swift */; };
 		0F0D296F1E807478007A28A9 /* UpBeaconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0D296E1E807478007A28A9 /* UpBeaconCell.swift */; };
 		0F66C94D1E8E76A300F813F3 /* libAprilBeaconSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F66C94C1E8E76A300F813F3 /* libAprilBeaconSDK.a */; };
+		0FD36C5A1EA0F100005B94E4 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD36C591EA0F100005B94E4 /* Tools.swift */; };
 		0FEAF4581E868D0000DCE400 /* IRequestUpBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEAF4571E868D0000DCE400 /* IRequestUpBeacon.swift */; };
 		0FEAF45D1E86A73200DCE400 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FEAF45C1E86A73200DCE400 /* Constants.swift */; };
 		A78F185B03E993B9A3F9B765 /* Pods_iBeacon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215BA3B4DB80DD02707530F1 /* Pods_iBeacon.framework */; };
@@ -40,6 +41,7 @@
 		0F50D94B1E9E41A300CC2071 /* ABSensor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABSensor.h; sourceTree = "<group>"; };
 		0F50D94C1E9E41A300CC2071 /* AprilBeaconSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AprilBeaconSDK.h; sourceTree = "<group>"; };
 		0F66C94C1E8E76A300F813F3 /* libAprilBeaconSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAprilBeaconSDK.a; path = AprilSDK/libAprilBeaconSDK.a; sourceTree = "<group>"; };
+		0FD36C591EA0F100005B94E4 /* Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		0FEAF4571E868D0000DCE400 /* IRequestUpBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRequestUpBeacon.swift; sourceTree = "<group>"; };
 		0FEAF45C1E86A73200DCE400 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		215BA3B4DB80DD02707530F1 /* Pods_iBeacon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iBeacon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -141,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				0FEAF45C1E86A73200DCE400 /* Constants.swift */,
+				0FD36C591EA0F100005B94E4 /* Tools.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				0FEAF4581E868D0000DCE400 /* IRequestUpBeacon.swift in Sources */,
 				0F0D29421E805758007A28A9 /* AppDelegate.swift in Sources */,
 				0FEAF45D1E86A73200DCE400 /* Constants.swift in Sources */,
+				0FD36C5A1EA0F100005B94E4 /* Tools.swift in Sources */,
 				0F0D296F1E807478007A28A9 /* UpBeaconCell.swift in Sources */,
 				0F0D295B1E805C97007A28A9 /* UpBeacon.swift in Sources */,
 			);
@@ -361,6 +365,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "$(inherited)";
+				"OTHER_LDFLAGS[arch=*]" = "$(inherited)";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -404,6 +410,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "$(inherited)";
+				"OTHER_LDFLAGS[arch=*]" = "$(inherited)";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
