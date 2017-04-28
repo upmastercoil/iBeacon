@@ -57,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ABBluetoothManagerDelegat
             print("start url = \(url?.absoluteString)")
             
             
-//            let url = URL(string: "http://swapi.co/api/people/1")!
+            let url2 = URL(string: "http://swapi.co/api/people/1")!
 //            let dataTask = URLSession().dataTask(with: url) {
 //                data, reponse, error in
 //                guard let data = data else {

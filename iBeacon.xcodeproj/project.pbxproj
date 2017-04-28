@@ -431,6 +431,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/AprilSDK",
 				);
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = il.co.upmaster.beacon.iBeacon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/alexburzak/Documents/iBeacon/iBeacon/iBeacon-Bridging-Header.h";
@@ -451,6 +452,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/AprilSDK",
 				);
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = il.co.upmaster.beacon.iBeacon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/alexburzak/Documents/iBeacon/iBeacon/iBeacon-Bridging-Header.h";

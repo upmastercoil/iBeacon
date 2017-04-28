@@ -8,4 +8,5 @@ public struct Constants {
     static let MINOR = "minor"
     static let MINIMUM_BACKGROUND_FETCH_INTERVAL:Double = 60
     static let IBEACON_NAME_FILTER = "iBeacon_name_filter_upbeacon"
+    static let IBEACON_REGION = "ibeacon_region"
 }

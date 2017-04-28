@@ -1,21 +1,23 @@
 import UIKit
 import Alamofire
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, ABBluetoothManagerDelegate {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, ABBeaconManagerDelegate {
     
     var aprilBeacons = [ABBeacon]()
-    var beaconManager:ABBluetoothManager?
-
+    var beaconManager:ABBeaconManager?
+    var beaconRegion:ABBeaconRegion?
+    
     @IBOutlet weak var collectionViewBeacons: UICollectionView!
     
     override func viewDidLoad() {
         
         func initUpBeacons() {
             
-            self.beaconManager = ABBluetoothManager()
-            self.beaconManager?.delegate = self as ABBluetoothManagerDelegate
-            self.beaconManager?.startAprilBeaconsDiscovery()
-            self.beaconManager?.addCustomBeaconNameFilter(Constants.IBEACON_NAME_FILTER)
+            self.beaconManager = ABBeaconManager()
+            self.beaconManager?.delegate = self as ABBeaconManagerDelegate
+            let beaconUUID = UUID()
+            beaconRegion = ABBeaconRegion(proximityUUID: beaconUUID, identifier: Constants.IBEACON_REGION)
+            self.beaconManager?.startRangingBeacons(in: beaconRegion)
         }
         
         super.viewDidLoad()
@@ -24,20 +26,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collectionViewBeacons.dataSource = self
     }
     
-    func beaconManager(_ manager: ABBluetoothManager!, didDiscover beacon: ABBeacon!) {
+    func beaconManager(_ manager: ABBeaconManager!, didRangeBeacons beacons: [Any]!, in region: ABBeaconRegion!) {
         
-        aprilBeacons.append(beacon!)
-        collectionViewBeacons.reloadData()
-    }
-    
-    func beaconManager(_ manager: ABBluetoothManager!, didDiscoverBeacons beacons: [Any]!) {
-
         aprilBeacons.removeAll()
         for beacon in beacons{
             aprilBeacons.append(beacon as! ABBeacon)
         }
-
+        
         collectionViewBeacons.reloadData()
+        //TODO Noy
     }
     
     func numberOfSections(in collectionViewBeacons: UICollectionView) -> Int {
@@ -53,12 +50,27 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionViewBeacons: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let beacon:ABBeacon = aprilBeacons[indexPath.item]
+        
         let peripheral:CBPeripheral = beacon.peripheral
         let cell = collectionViewBeacons.dequeueReusableCell(withReuseIdentifier: "beaconCell", for: indexPath) as! UpBeaconCell
         let uuid = peripheral.identifier.uuidString
         cell.textViewBeacon.text = peripheral.name! + " - UUID = " + uuid
-        
         return cell
     }
+    
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
